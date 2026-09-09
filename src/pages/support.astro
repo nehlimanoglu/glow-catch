@@ -1,19 +1,15 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Glow Catch — Support</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<main>
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Support — Glow Catch" description="Answers to the common questions, and how to reach a person." current="support">
 
-<h1>Support</h1>
-<p class="lede">Glow Catch · answers first, then how to reach a person</p>
+  <section>
+    <p class="kicker">Glow Catch · Support</p>
+    <h1 style="max-width:22ch">Answers first, then a person.</h1>
+  </section>
 
-
-
+  <section>
+    <div class="prose">
 <div class="card">
   <p style="margin:0">
     <strong>Something wrong with a purchase?</strong> Tap <em>Shop → Restore
@@ -32,7 +28,7 @@
 </p>
 <p>
   If that changes in a later version, the
-  <a href="privacy-policy.html">privacy policy</a> will say so before the
+  <a href="/privacy-policy">privacy policy</a> will say so before the
   version is released.
 </p>
 
@@ -87,12 +83,10 @@
   <a href="mailto:nehlimanoglu@gmail.com">nehlimanoglu@gmail.com</a><br>
   We aim to reply within 3 working days.
 </p>
-<p><a href="privacy-policy.html">Privacy policy</a></p>
+<p><a href="/privacy-policy">Privacy policy</a></p>
 
-<footer>
-  Glow Catch · Nurçin Ehlimanoğlu
-</footer>
 
-</main>
-</body>
-</html>
+    </div>
+  </section>
+
+</Base>

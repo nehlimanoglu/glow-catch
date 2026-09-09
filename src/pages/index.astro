@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Nurçin Ehlimanoğlu — a one-person game studio"
+  description="A one-person studio making small, exact games. Glow Catch is the first."
+  current="studio">
+
+  <section>
+    <h1>A one-person studio making <span class="hit">small, exact</span> games.</h1>
+    <p class="lede">
+      Each one is built around a single rule you can learn in four seconds and
+      keep failing at for an hour. No tutorials to sit through, no meters to
+      wait on — the game is the rule, and the rule is the difficulty.
+    </p>
+
+    <div class="shelf" style="margin-top: clamp(40px, 7vw, 76px);">
+      <a class="obj" href="/glow-catch">
+        <div class="thumb live"></div>
+        <div class="label"><b>Glow Catch</b><span>2026</span></div>
+      </a>
+      <div class="obj" aria-hidden="true">
+        <div class="thumb soon"></div>
+        <div class="label"><span style="color:var(--muted)">Next</span><span style="color:var(--muted)">—</span></div>
+      </div>
+      <div class="squig"></div>
+      <div style="margin-bottom:56px; text-align:right;">
+        <div class="label" style="justify-content:flex-end">
+          <a href="mailto:nehlimanoglu@gmail.com" style="color:var(--ink);text-decoration:none">nehlimanoglu@gmail.com</a>
+        </div>
+        <div class="label" style="color:var(--muted); justify-content:flex-end; margin-top:4px">
+          Replies in three working days
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="speckle" style="margin: 0 calc(var(--pad) * -1); padding-left: var(--pad); padding-right: var(--pad);">
+    <p class="kicker">How the games are made</p>
+    <h2>One rule, tested until it is fair.</h2>
+    <div class="cols" style="margin-top: 30px;">
+      <div class="card yellowish">
+        <h3>The rule comes first</h3>
+        <p>A game starts as one sentence. If the sentence needs a second sentence
+           to make sense, it is not the game yet.</p>
+      </div>
+      <div class="card mintish">
+        <h3>Difficulty is measured, not guessed</h3>
+        <p>Every level in Glow Catch was run through a simulation before a person
+           saw it, so a level that is impossible is a bug rather than a surprise.</p>
+      </div>
+      <div class="card pinkish">
+        <h3>Nothing is drawn twice</h3>
+        <p>The boards, the glow, the sounds — all generated in code at runtime.
+           The whole game ships with almost no image files.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Contact</p>
+    <h2>A person answers this address.</h2>
+    <p class="lede">
+      Bug reports, press, and publishing questions all go to the same place —
+      there is only one of us. Support requests get a reply within three working
+      days; the <a href="/support" style="color:var(--ink)">support page</a>
+      answers the common ones immediately.
+    </p>
+    <p style="margin-top: 24px;">
+      <a class="pill filled" href="mailto:nehlimanoglu@gmail.com"
+         style="text-decoration:none">nehlimanoglu@gmail.com</a>
+    </p>
+  </section>
+
+</Base>

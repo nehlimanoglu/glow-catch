@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+
+// The rungs the game actually ships, from LevelLibrary. Kept short on purpose:
+// a list of every mechanic reads as a manual, and the point is that each one
+// re-reads the same board rather than adding a system.
+const ladder = [
+  { at: '1',    what: 'One light at a time. Tap it before it burns out.' },
+  { at: '4',    what: 'Purple arrives. Touch it and the run pays for it.' },
+  { at: '6',    what: 'Two lit at once, and your eye has to split.' },
+  { at: '9',    what: 'Colours flip mid-life. Muscle memory stops helping.' },
+  { at: '15',   what: 'Rule levels: only tap red. Every other colour is a trap.' },
+  { at: '18',   what: 'Fever. Pods arrive twice as fast, in bursts.' },
+];
+---
+<Base
+  title="Glow Catch — a reflex game for iPhone"
+  description="Ten pods light up. Tap the lit ones before they burn out, and never touch the purple one."
+  current="game">
+
+  <section>
+    <p class="kicker">First game · iPhone · iOS 15+</p>
+    <h1>Tap the <span class="hit">bright</span> ones. <span class="strike">Not that one.</span></h1>
+    <p class="lede">
+      Ten pods, about half a second each, and one colour that ends the run if you
+      touch it. The hard part was never speed — it is stopping your thumb on the
+      light you were not asked for.
+    </p>
+    <p style="margin-top: 26px;">
+      <span class="pill">Coming to the App Store</span>
+    </p>
+  </section>
+
+  <section class="speckle" style="margin: 0 calc(var(--pad) * -1); padding-left: var(--pad); padding-right: var(--pad);">
+    <p class="kicker">What makes it hard</p>
+    <h2>Every few levels, the same board asks a different question.</h2>
+    <div class="cols" style="margin-top: 30px;">
+      {ladder.map(rung => (
+        <div class="card">
+          <div class="label" style="color:var(--muted); margin-bottom:8px">Level {rung.at}</div>
+          <p style="margin:0">{rung.what}</p>
+        </div>
+      ))}
+    </div>
+    <p class="lede" style="margin-top: 30px;">
+      Past level 23 the lifetimes keep shrinking and you have one life. The ladder
+      does not run out — after the hand-tuned levels, a formula takes over.
+    </p>
+  </section>
+
+  <section>
+    <div class="cols">
+      <div>
+        <p class="kicker">Not a grid that speeds up</p>
+        <h2>The board changes shape.</h2>
+        <p class="lede" style="max-width:40ch">
+          Rectangle, diamond, triangle, hexagon, star, heart, ring, plus. The pod
+          count moves with the formation, so a level is a different thing to read
+          rather than the same one running faster. Every shape is drawn in code —
+          the heart is an equation, not a picture.
+        </p>
+      </div>
+      <div class="card yellowish">
+        <h3>What it does not do</h3>
+        <ul style="padding-left:20px; margin-top:10px">
+          <li>No advertisements in this version.</li>
+          <li>No account, no sign-in, no messaging.</li>
+          <li>No name, email or location is ever asked for.</li>
+        </ul>
+        <p style="margin-top:14px; font-size:15px; color:var(--muted)">
+          What it does collect is listed event by event on the
+          <a href="/privacy-policy" style="color:var(--ink)">privacy page</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Stuck, or something went wrong?</p>
+    <h2>The <a href="/support" style="color:var(--ink)">support page</a> answers most of it.</h2>
+    <p class="lede">
+      Lost progress, a purchase that did not arrive, a level that feels unfair —
+      all of it is answered there, and what is not gets an email reply within
+      three working days.
+    </p>
+  </section>
+
+</Base>
