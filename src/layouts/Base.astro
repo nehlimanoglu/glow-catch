@@ -4,12 +4,13 @@ import '../styles/showroom.css';
 const { title, description, current } = Astro.props;
 const year = new Date().getFullYear();
 
+// One entry per game plus a single Legal door. With two games a bare
+// "Privacy" link would quietly mean one of them; /legal names both.
 const nav = [
-  { href: '/',              label: 'Studio',  key: 'studio' },
-  { href: '/glow-catch',    label: 'Glow Catch', key: 'game' },
-  { href: '/support',       label: 'Support', key: 'support' },
-  { href: '/privacy-policy',label: 'Privacy', key: 'privacy' },
-  { href: '/terms',         label: 'Terms',   key: 'terms' },
+  { href: '/',                label: 'Studio',         key: 'studio' },
+  { href: '/glow-catch',      label: 'Glow Catch',     key: 'game'   },
+  { href: '/pegboard-seven',  label: 'Pegboard Seven', key: 'game2'  },
+  { href: '/legal',           label: 'Legal',          key: 'legal'  },
 ];
 ---
 <!doctype html>
@@ -37,8 +38,8 @@ OWN-WORLD: White paper, 3px black outlines on every object, four candy roles
 (pink, mint, yellow, grape) as fills that own whole shapes; Bricolage Grotesque
 at display weight against Archivo Narrow all-caps labels; terrazzo speckle only
 where a section wants weight.
-STORY: A visitor sees a studio with a point of view, understands the one game it
-has made, and can reach a person or the legal documents in one move.
+STORY: A visitor sees a studio with a point of view, understands the games it
+has made, and can reach a person or a game's legal documents in one move.
 FIRST VIEWPORT: Thin masthead rule; studio statement at display scale with one
 yellow-highlighted phrase; the shelf of game objects anchored at the bottom with
 the contact line opposite.
@@ -65,9 +66,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     <span>© {year} Nurçin Ehlimanoğlu</span>
     <span class="links">
       <a href="mailto:nehlimanoglu@gmail.com">nehlimanoglu@gmail.com</a>
-      <a href="/support">Support</a>
-      <a href="/privacy-policy">Privacy</a>
-      <a href="/terms">Terms</a>
+      <a href="/legal">Legal</a>
+      <a href="mailto:nehlimanoglu@gmail.com">Contact</a>
     </span>
   </footer>
 </div>

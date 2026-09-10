@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+
+// The benches the game actually ships, from Chapters.All in GameTypes.cs.
+// Six of twenty-two — a full list reads as a manual, and the point is that each
+// bench re-reads the same board rather than adding a separate system.
+const benches = [
+  { at: '6',   name: 'Fixed blocks',   what: 'Bolted down for good. They cut arrow paths permanently.' },
+  { at: '17',  name: 'Stacked plates', what: 'A plate sits on another. The top one has to go first — so sooner or later you take a colour the bin is not asking for.' },
+  { at: '31',  name: 'Rusted screws',  what: 'Two taps, and the first one only loosens it. Orange ring.' },
+  { at: '106', name: 'One-way gates',  what: 'Teal floor plates carry arrows one direction only. The board decides which way things can leave.' },
+  { at: '136', name: 'Order locks',    what: 'Numbered plates leave in order. Their screws come off freely — the plate itself waits its turn.' },
+  { at: '151', name: 'Linked plates',  what: 'Purple plates travel together, on a single move. This one pays you back for setting things up.' },
+];
+---
+<Base
+  title="Pegboard Seven — a puzzle game for iPhone"
+  description="Unscrew the arrows, fill the bin, keep the tray empty. 300 levels across 22 benches."
+  current="game2">
+
+  <section>
+    <p class="kicker">Second game · iPhone · iOS 15+</p>
+    <h1>Take the screw you <span class="hit">need</span>, <span class="strike">not the one that fits.</span></h1>
+    <p class="lede">
+      One bin is open and it takes one colour. Every other screw you pull goes to
+      the tray, and a full tray ends the level. The board keeps making you reach
+      past the colour you want.
+    </p>
+    <p style="margin-top: 26px;">
+      <span class="pill">Coming to the App Store</span>
+    </p>
+  </section>
+
+  <section class="speckle" style="margin: 0 calc(var(--pad) * -1); padding-left: var(--pad); padding-right: var(--pad);">
+    <p class="kicker">What makes it hard</p>
+    <h2>Twenty-two benches, and each one takes something away.</h2>
+    <div class="cols" style="margin-top: 30px;">
+      {benches.map(b => (
+        <div class="card">
+          <div class="label" style="color:var(--muted); margin-bottom:8px">Level {b.at} · {b.name}</div>
+          <p style="margin:0">{b.what}</p>
+        </div>
+      ))}
+    </div>
+    <p class="lede" style="margin-top: 30px;">
+      Three hundred levels, and the tray shrinks as they climb. The last benches
+      run every rule at once.
+    </p>
+  </section>
+
+  <section>
+    <div class="cols">
+      <div>
+        <p class="kicker">Not a generator that hopes</p>
+        <h2>Every level is provably solvable.</h2>
+        <p class="lede" style="max-width:40ch">
+          Boards are built backwards: an arrow is only ever placed where the
+          board at that moment already leaves it a clear path, so the reverse of
+          the placement order is always a valid solution. The screw colours are
+          then dealt along that same order, which means a perfect run never needs
+          the tray at all — the tray is the margin for being wrong, not a
+          requirement.
+        </p>
+        <p class="lede" style="max-width:40ch">
+          All 300 are replayed automatically before they ship.
+        </p>
+      </div>
+      <div class="card mintish">
+        <h3>What it does not do</h3>
+        <ul style="padding-left:20px; margin-top:10px">
+          <li>No advertisements in this version.</li>
+          <li>No analytics, no crash reporting, no tracking prompt.</li>
+          <li>No account, no sign-in, no messaging.</li>
+        </ul>
+        <p style="margin-top:14px; font-size:15px; color:var(--muted)">
+          Nothing leaves the phone. The
+          <a href="/pegboard-seven-privacy" style="color:var(--ink)">privacy page</a>
+          says so in detail.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Stuck, or something went wrong?</p>
+    <h2>The <a href="/pegboard-seven-support" style="color:var(--ink)">support page</a> answers most of it.</h2>
+    <p class="lede">
+      A purchase that did not arrive, progress that did not move to a new phone,
+      a level that feels impossible — all of it is answered there, and what is
+      not gets an email reply within three working days.
+    </p>
+  </section>
+
+</Base>

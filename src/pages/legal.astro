@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Each game carries its own documents. A studio with two games cannot have one
+// "Privacy" link: the two apps collect different things, and a single page would
+// be wrong about one of them.
+const games = [
+  {
+    name: 'Glow Catch',
+    note: 'Records how the game is played, through Google Firebase.',
+    privacy: '/privacy-policy',
+    support: '/support',
+    terms:   '/terms',
+  },
+  {
+    name: 'Pegboard Seven',
+    note: 'Sends nothing. No analytics, no crash reporting, no advertising.',
+    privacy: '/pegboard-seven-privacy',
+    support: '/pegboard-seven-support',
+    terms:   '/pegboard-seven-terms',
+  },
+];
+---
+<Base title="Legal — Nurçin Ehlimanoğlu"
+      description="Privacy policy, support and terms of use for each game."
+      current="legal">
+
+  <section>
+    <p class="kicker">Legal</p>
+    <h1 style="max-width:20ch">One set of documents <span class="hit">per game</span>.</h1>
+    <p class="lede">
+      The two games do not collect the same things, so they cannot share a
+      privacy policy. Each page below describes the version that is on the App
+      Store, and is updated before a version that changes it ships.
+    </p>
+  </section>
+
+  <section>
+    <div class="cols">
+      {games.map(g => (
+        <div class="card">
+          <h3>{g.name}</h3>
+          <p style="margin-top:8px">{g.note}</p>
+          <p class="label" style="margin-top:16px; gap:14px; flex-wrap:wrap">
+            <a href={g.privacy}>Privacy</a>
+            <a href={g.support}>Support</a>
+            <a href={g.terms}>Terms</a>
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Publisher</p>
+    <h2>Nurçin Ehlimanoğlu</h2>
+    <p class="lede">
+      A sole proprietorship registered in Türkiye. One person answers
+      <a href="mailto:nehlimanoglu@gmail.com" style="color:var(--ink)">nehlimanoglu@gmail.com</a>,
+      within three working days.
+    </p>
+  </section>
+
+</Base>
