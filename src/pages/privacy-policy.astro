@@ -117,8 +117,11 @@ import Base from '../layouts/Base.astro';
 
 <h2>How long it is kept</h2>
 <p>
-  Analytics events are held for the retention period set on the Firebase
-  project, after which Google deletes them. Crash reports are kept by
+  Individual analytics events are held for <strong>2 months</strong>, and the
+  anonymous identifier a device is counted under for <strong>14 months</strong>
+  after its last event; Google deletes both when the period runs out. What
+  survives is the aggregate — how many people cleared level nine, not which
+  device did. Crash reports are kept by
   Crashlytics for around 90 days and then removed. Nothing is archived
   elsewhere, and none of it is ever sold, rented, or shared for advertising.
 </p>
