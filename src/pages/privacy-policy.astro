@@ -1,7 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Privacy Policy — Glow Catch" description="Everything Glow Catch stores or sends, listed event by event." current="privacy">
+<Base title="Privacy Policy — Glow Catch"
+      description="Everything Glow Catch stores or sends, listed event by event."
+      current="privacy">
 
   <section>
     <p class="kicker">Glow Catch · Privacy Policy</p>
@@ -17,6 +19,15 @@ import Base from '../layouts/Base.astro';
 </p>
 <p>
   What follows is everything the app stores or sends, described plainly.
+</p>
+
+<h2>Who is responsible</h2>
+<p>
+  The data controller is <strong>Nurçin Ehlimanoğlu</strong>, a sole
+  proprietorship registered in Türkiye, reachable at
+  <a href="mailto:nehlimanoglu@gmail.com">nehlimanoglu@gmail.com</a>. There is
+  no data protection officer: the business is one person, and that person reads
+  the address above.
 </p>
 
 <h2>What stays on your device</h2>
@@ -50,13 +61,12 @@ import Base from '../layouts/Base.astro';
   <tr><td><code>level_start</code></td><td>level, kind, chapter, attempt number</td></tr>
   <tr><td><code>level_complete</code></td><td>level, stars, seconds, reward</td></tr>
   <tr><td><code>level_fail</code></td><td>level, reason, progress, seconds</td></tr>
-  <tr><td><code>energy_blocked</code>, <code>gate_blocked</code></td><td>where you were stopped</td></tr>
+  <tr><td><code>gate_blocked</code></td><td>where you were stopped</td></tr>
   <tr><td><code>gold_earned</code>, <code>gold_spent</code></td><td>in-game currency in and out</td></tr>
-  <tr><td><code>purchase_done</code></td><td>which product, its price, whether it succeeded</td></tr>
 </table>
 <p>
-  Alongside them we set three properties: how far you have got, how many stars
-  you hold, and whether you have ever made a purchase.
+  Alongside them we set two properties: how far you have got and how many stars
+  you hold.
 </p>
 <p>
   None of that identifies you. Firebase itself also collects standard technical
@@ -64,6 +74,20 @@ import Base from '../layouts/Base.astro';
   your device model and operating system version, and a coarse country or region
   worked out from your IP address. Firebase's own terms cover that;
   see <a href="https://firebase.google.com/support/privacy">Firebase privacy</a>.
+</p>
+
+<h3>Crash reports — Firebase Crashlytics</h3>
+<p>
+  When the game crashes, a report is sent so the fault can be found. It carries
+  the technical state of the crash — the stack trace, your device model and
+  iOS version, how much memory was free — and the little we add on purpose:
+  which level you were on, which attempt, and what the game was doing at the
+  time, such as showing a screen or returning from one.
+</p>
+<p>
+  There is no name, no address and no account in a crash report, because the
+  game holds none. Crashlytics' own terms cover what Google does with it; see
+  <a href="https://firebase.google.com/support/privacy">Firebase privacy</a>.
 </p>
 
 <h3>Advertising</h3>
@@ -77,11 +101,36 @@ import Base from '../layouts/Base.astro';
   version is released, and iOS will ask for your permission at that point.
 </p>
 
-<h3>Purchases — Apple</h3>
+<h2>Why we are allowed to do this</h2>
 <p>
-  Payment is handled entirely by Apple. We never see your card, your billing
-  address or your Apple ID. We are told only that a purchase of a particular
-  product succeeded, so we can hand over what you bought.
+  Under the GDPR the basis is <strong>legitimate interest</strong> (Article
+  6(1)(f)): knowing which levels are unfair and which crashes are real is what
+  makes the game fixable, and it is done with data that identifies nobody. We
+  balanced that against your privacy by collecting no contact details, no
+  location beyond a country, and nothing you type — because the game gives you
+  nothing to type.
+</p>
+<p>
+  You can end that processing at any time by deleting the app. There is no
+  account to close, because there was never one to open.
+</p>
+
+<h2>How long it is kept</h2>
+<p>
+  Analytics events are held for the retention period set on the Firebase
+  project, after which Google deletes them. Crash reports are kept by
+  Crashlytics for around 90 days and then removed. Nothing is archived
+  elsewhere, and none of it is ever sold, rented, or shared for advertising.
+</p>
+
+<h2>Where it goes</h2>
+<p>
+  Both services are run by Google, so the data leaves Türkiye and the EEA and is
+  processed in the United States and other countries where Google operates.
+  Google covers those transfers with the European Commission's standard
+  contractual clauses and its own certification under the EU–US Data Privacy
+  Framework; their terms are at
+  <a href="https://firebase.google.com/support/privacy">Firebase privacy</a>.
 </p>
 
 <h2>Children</h2>
@@ -100,14 +149,20 @@ import Base from '../layouts/Base.astro';
   will help as far as the data allows.
 </p>
 <ul>
-  <li><strong>Stop analytics and personalised ads:</strong> decline the tracking
-      prompt, or turn it off in iOS Settings.</li>
+  <li><strong>Stop analytics:</strong> delete the app. There is no in-game
+      switch, because there is nothing switchable left once the app is gone.</li>
   <li><strong>Delete everything:</strong> delete the app.</li>
 </ul>
 <p>
   In Türkiye the same applies under KVKK (Law no. 6698): we do not hold personal
   data that identifies you, so there is no record to hand over or erase, and the
   routes above are the ones that work.
+</p>
+<p>
+  If you think we have handled this badly, you can complain to a regulator
+  without going through us first: your national data protection authority in the
+  EEA, the Information Commissioner's Office in the UK, or the Kişisel Verileri
+  Koruma Kurumu in Türkiye.
 </p>
 
 <h2>Changes</h2>
