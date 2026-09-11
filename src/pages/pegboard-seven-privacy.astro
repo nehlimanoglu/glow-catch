@@ -2,12 +2,12 @@
 import Base from '../layouts/Base.astro';
 ---
 <Base title="Privacy Policy — Pegboard Seven"
-      description="What Pegboard Seven stores and what it sends. In this version, nothing leaves your phone."
+      description="Everything Pegboard Seven stores or sends, listed event by event."
       current="legal">
 
   <section>
     <p class="kicker">Pegboard Seven · Privacy Policy</p>
-    <h1 style="max-width:22ch">Nothing leaves your phone.</h1>
+    <h1 style="max-width:22ch">What the game knows about you.</h1>
   </section>
 
   <section>
@@ -18,9 +18,8 @@ import Base from '../layouts/Base.astro';
   there is nowhere in the app to type any of them.
 </p>
 <p>
-  This page describes <strong>version 1.0</strong>, the version on the App Store
-  today. It is short because the app is short: it does not send anything
-  anywhere.
+  This page describes <strong>version 1.0</strong>. What follows is everything
+  the app stores or sends, described plainly.
 </p>
 
 <h2>Who is responsible</h2>
@@ -40,81 +39,141 @@ import Base from '../layouts/Base.astro';
 </p>
 <ul>
   <li>which levels you have unlocked, and the stars on each one</li>
-  <li>your coin balance, and whether you own the ad-free upgrade</li>
+  <li>your coin balance</li>
   <li>daily-reward streak and the date it was last claimed</li>
   <li>weekly event progress and which rewards you have taken</li>
   <li>which chapter briefings you have already been shown</li>
-  <li>your sound and haptics settings</li>
+  <li>whether sound is on</li>
 </ul>
 <p>
-  Deleting the app deletes all of it. Purchases are the exception — they live
-  with your Apple ID rather than with us, so they survive a reinstall and can be
-  restored from the shop.
+  Deleting the app deletes all of it, and <em>MORE › Reset Progress</em> clears
+  it from inside the game. There is nothing to buy in this version, so there is
+  no purchase to restore.
 </p>
 
 <h2>What the app sends</h2>
+
+<h3>Analytics — Google Firebase</h3>
 <p>
-  <strong>Nothing.</strong> This version contains no analytics, no crash
-  reporting, no advertising and no tracking. The game code makes no network
-  requests of its own; there is no server behind it and no account to sync to.
+  We record how the game is played so we can tell which levels are unfair and
+  where people stop. These are the events, in full:
 </p>
+<table>
+  <tr><th>Event</th><th>What it carries</th></tr>
+  <tr><td><code>level_start</code></td><td>level, whether it is a hard level</td></tr>
+  <tr><td><code>level_complete</code></td><td>level, stars, moves, screws sent to the tray, coins earned</td></tr>
+  <tr><td><code>level_fail</code></td><td>level, reason (tray jam or out of moves), moves</td></tr>
+  <tr><td><code>rescue_offered</code>, <code>rescue_taken</code></td><td>level, reason, coin cost, coin balance</td></tr>
+  <tr><td><code>booster_used</code></td><td>which booster, coin cost</td></tr>
+  <tr><td><code>gate_blocked</code>, <code>gate_buy</code></td><td>chapter, stars needed and held, coin cost</td></tr>
+  <tr><td><code>daily_claim</code>, <code>event_claim</code></td><td>day or milestone, coins received</td></tr>
+  <tr><td><code>exception</code></td><td>a shortened error message, where in the code it happened, level</td></tr>
+</table>
 <p>
-  Because there is no advertising, the app does not use the Advertising
-  Identifier (IDFA) and <strong>never shows the App Tracking Transparency
-  prompt</strong>. If you have seen that prompt, it did not come from this app.
+  None of that identifies you. Firebase itself also collects standard technical
+  information we do not choose the contents of — an app-instance identifier,
+  your device model and operating system version, and a coarse country or region
+  worked out from your IP address. The app is built with Firebase's variant that
+  has <strong>no advertising-identifier support</strong>, so the IDFA is never
+  read. Firebase's own terms cover the rest; see
+  <a href="https://firebase.google.com/support/privacy">Firebase privacy</a>.
 </p>
 
-<h2>Purchases</h2>
+<h3>Crash reports — Firebase Crashlytics</h3>
 <p>
-  The shop sells two coin packs. The purchase itself is carried out entirely by
-  <strong>Apple</strong>: you pay Apple, Apple verifies the receipt, and Apple
-  tells the app whether it succeeded. We never see your card details, your Apple
-  ID or your billing address — none of that reaches us, and there is no place in
-  the app where it could.
+  When the game crashes, a report is sent so the fault can be found. It carries
+  the technical state of the crash — the stack trace, your device model and
+  iOS version, how much memory was free — and the little we add on purpose:
+  which level you were on, whether it was a hard level, and your coin balance.
 </p>
 <p>
-  What Apple does with that transaction is covered by Apple's own privacy
-  policy, where Apple is the controller and we are not.
+  There is no name, no address and no account in a crash report, because the
+  game holds none. Crashlytics' own terms cover what Google does with it; see
+  <a href="https://firebase.google.com/support/privacy">Firebase privacy</a>.
+</p>
+
+<h3>Advertising and purchases</h3>
+<p>
+  <strong>This version shows no advertisements and sells nothing.</strong> There
+  is no advertising SDK and no in-app purchase in the app, the advertising
+  identifier is never requested, and iOS will not ask whether the game may track
+  you — because it does not.
+</p>
+<p>
+  If a future version introduces either, this page will be updated before that
+  version is released, and iOS will ask for your permission where it has to.
 </p>
 
 <h2>Why we are allowed to do this</h2>
 <p>
-  We do not process personal data, so the usual machinery — legal bases,
-  profiling, data sharing — has nothing to attach to. Saving your progress on
-  your own device is not processing by us; we cannot see it and it is not sent
-  anywhere. The only processing connected to the app is Apple's handling of a
-  purchase, which Apple performs to fulfil the contract you make with Apple.
+  Under the GDPR the basis is <strong>legitimate interest</strong> (Article
+  6(1)(f)): knowing which levels are unfair and which crashes are real is what
+  makes the game fixable, and it is done with data that identifies nobody. We
+  balanced that against your privacy by collecting no contact details, no
+  location beyond a country, and nothing you type — because the game gives you
+  nothing to type.
+</p>
+<p>
+  You can end that processing at any time by deleting the app. There is no
+  account to close, because there was never one to open.
+</p>
+
+<h2>How long it is kept</h2>
+<p>
+  Google Analytics keeps individual events for no longer than
+  <strong>14 months</strong> and then deletes them; what survives is the
+  aggregate — how many people cleared level nine, not which device did. Crash
+  reports are kept by Crashlytics for around 90 days and then removed. Nothing is
+  archived elsewhere, and none of it is ever sold, rented, or shared for
+  advertising.
+</p>
+
+<h2>Where it goes</h2>
+<p>
+  Both services are run by Google, so the data leaves Türkiye and the EEA and is
+  processed in the United States and other countries where Google operates.
+  Google covers those transfers with the European Commission's standard
+  contractual clauses and its own certification under the EU–US Data Privacy
+  Framework; their terms are at
+  <a href="https://firebase.google.com/support/privacy">Firebase privacy</a>.
 </p>
 
 <h2>Children</h2>
 <p>
-  The game collects nothing from anyone, so there is no children's data to
-  handle differently. There is no chat, no user-generated content, no external
-  links inside gameplay, and no advertising.
+  Pegboard Seven is not directed at children under 13, and we do not knowingly
+  collect anything from them. There is no chat, no user-generated content and no
+  advertising. If you believe a child's data has reached us through this app,
+  write to <a href="mailto:nehlimanoglu@gmail.com">nehlimanoglu@gmail.com</a> and
+  we will remove what we can.
 </p>
 
 <h2>Your rights</h2>
 <p>
   Rights of access, correction, deletion, objection and portability exist under
-  the GDPR, the UK GDPR and Türkiye's KVKK (Law 6698). They apply to data we
-  hold about you — and we hold none, which means there is nothing to hand over
-  and nothing to erase. Deleting the app removes the on-device save.
+  the GDPR, the UK GDPR and Türkiye's KVKK (Law 6698). Because we hold nothing
+  that identifies you, there is usually nothing for us to look up, correct or
+  delete on request — but write to
+  <a href="mailto:nehlimanoglu@gmail.com">nehlimanoglu@gmail.com</a> and we will
+  help as far as the data allows.
 </p>
+<ul>
+  <li><strong>Stop analytics and crash reports:</strong> delete the app.</li>
+  <li><strong>Delete your progress:</strong> <em>MORE › Reset Progress</em>, or
+      delete the app.</li>
+</ul>
 <p>
-  If you believe that is wrong, write to
-  <a href="mailto:nehlimanoglu@gmail.com">nehlimanoglu@gmail.com</a>. You may
-  also complain directly to a supervisory authority — your national authority in
-  the EEA, the ICO in the UK, or the Personal Data Protection Authority (KVKK)
-  in Türkiye — without contacting us first.
+  You may also complain directly to a supervisory authority — your national
+  authority in the EEA, the ICO in the UK, or the Personal Data Protection
+  Authority (KVKK) in Türkiye — without contacting us first.
 </p>
 
 <h2>If this changes</h2>
 <p>
-  Analytics, crash reporting and advertising are all things this game may gain
-  in a later version. None of them can be switched on quietly: each one changes
-  what the app sends, and <strong>this page is updated before that version
-  ships</strong>, together with the App Store privacy label. The date below tells
-  you which version you are reading about.
+  Advertising and purchases are things this game may gain in a later version.
+  Neither can be switched on quietly: each one changes what the app does, and
+  <strong>this page is updated before that version ships</strong>, together with
+  the App Store privacy label. The date below tells you which version you are
+  reading about.
 </p>
 
 <h2>Contact</h2>
@@ -124,7 +183,7 @@ import Base from '../layouts/Base.astro';
 </p>
 
 <p class="fine">
-  Applies to Pegboard Seven version 1.0. Last updated 10 September 2026.
+  Applies to Pegboard Seven version 1.0. Last updated 11 September 2026.
 </p>
     </div>
   </section>
