@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "note": "Glow Catch runtime settings. Edited here, deployed with the site, picked up on a player's next launch. Keys absent fall back to the value shipped in the build.",
+  "levels": "Any level can be re-tuned without a build with a key of the form level.47 set to quota=24;seconds=50;lives=3. Fields: quota, seconds, lives, concurrent, fuse, spawn, overdrive, from, to, traps, noise, flip, fever, archetype, shape, rule. Values are clamped in the game, and an unknown field or a misspelled archetype leaves that part of the level as built. Put a level key in the variant block to try a rung on half the players, and name the tuning with levels.tag so the analytics can tell the two apart. Note for editors: the game finds a block by searching for its quoted name, so no note in this file may contain a block name in quotes, and no value may contain a comma.",
+  "experiment": "The share block is empty on purpose and every install is therefore on the first tuning. Filling it in is what starts an experiment: give each tuning its share of installs and the shares are walked in order, with anything left over staying on the first. The assignment is made from a number stored with the install, so a player stays on the side they were put on. Before switching one on, confirm this file is actually being served — the game asks for it once per launch and says nothing when it is missing, so an experiment against a file that 404s runs on nobody and reports a clean result.",
+  "default": {
+    "ads.quietUntilLevel": 4,
+    "ads.everyNLevels": 3,
+    "ads.minSecondsBetween": 60,
+    "ads.bannerGap": 24,
+    "endless.stageLights": 40,
+    "music.walkWholePlaylist": true,
+    "levels.tag": "base"
+  },
+  "split": {},
+  "b": {
+    "levels.tag": "b-opening-fuse",
+    "level.5": "fuse=1.15",
+    "level.6": "fuse=1.15",
+    "level.7": "fuse=1.15",
+    "level.8": "fuse=1.15",
+    "level.9": "fuse=1.12",
+    "level.10": "fuse=1.12",
+    "level.11": "fuse=1.12",
+    "level.12": "fuse=1.12"
+  }
+}
