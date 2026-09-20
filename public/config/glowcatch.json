@@ -10,7 +10,8 @@
     "ads.bannerGap": 24,
     "endless.stageLights": 40,
     "music.walkWholePlaylist": false,
-    "levels.tag": "base"
+    "level.200": "lives=2",
+    "levels.tag": "l200-lives2"
   },
   "split": {},
   "b": {
