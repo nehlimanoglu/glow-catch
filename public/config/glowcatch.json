@@ -9,7 +9,7 @@
     "ads.minSecondsBetween": 60,
     "ads.bannerGap": 24,
     "endless.stageLights": 40,
-    "music.walkWholePlaylist": true,
+    "music.walkWholePlaylist": false,
     "levels.tag": "base"
   },
   "split": {},
