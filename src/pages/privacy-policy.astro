@@ -6,7 +6,7 @@ import Base from '../layouts/Base.astro';
       current="privacy">
 
   <section>
-    <p class="kicker">Glow Catch · Privacy Policy</p>
+    <p class="kicker">Glow Catch · Privacy Policy · Updated 23 September 2026</p>
     <h1 style="max-width:22ch">What the game knows about you.</h1>
   </section>
 
@@ -23,8 +23,8 @@ import Base from '../layouts/Base.astro';
 
 <h2>Who is responsible</h2>
 <p>
-  The data controller is <strong>Nurçin Ehlimanoğlu</strong>, a sole
-  proprietorship registered in Türkiye, reachable at
+  The data controller is <strong>RockPaperScissors</strong>, the trading name
+  of Nurçin Ehlimanoğlu, a sole proprietorship registered in Türkiye, reachable at
   <a href="mailto:nehlimanoglu@gmail.com">nehlimanoglu@gmail.com</a>. There is
   no data protection officer: the business is one person, and that person reads
   the address above.
@@ -92,13 +92,43 @@ import Base from '../layouts/Base.astro';
 
 <h3>Advertising</h3>
 <p>
-  <strong>This version of Glow Catch shows no advertisements.</strong> There is
-  no advertising SDK in the app, no advertising identifier is requested, and iOS
-  will not ask you whether the game may track you — because it does not.
+  <strong>Glow Catch shows advertisements from version 1.2.</strong> They appear
+  in two places and nowhere else: a full-screen ad between levels, and an ad you
+  choose to watch in exchange for something — another attempt, a revive, a skip.
+  <strong>There is no banner</strong>, because this game is played by tapping and
+  a strip of advertising along the bottom would cost you lives.
 </p>
 <p>
-  If a future version introduces ads, this page will be updated before that
-  version is released, and iOS will ask for your permission at that point.
+  The ads are filled by <strong>AppLovin MAX</strong>, which runs an auction
+  between several ad networks for each slot and shows whichever bids highest.
+  The networks that take part are <strong>AppLovin</strong>, the
+  <strong>AppLovin Exchange</strong>, <strong>Unity Ads</strong> and
+  <strong>Google AdMob</strong>. Each of them receives the request and, with it,
+  your device's advertising identifier where you have allowed one, along with
+  your approximate location by country, your device model and its operating
+  system version. They use it to choose an ad and to count whether it was seen.
+</p>
+<p>
+  We also send the auction two facts about you, and no more: whether you have
+  ever bought anything in this game, and which of five bands your progress falls
+  into. Neither is tied to your name, because we do not have it.
+</p>
+<p>
+  <strong>Measurement.</strong> Two further SDKs tell us which advertisement
+  brought someone to the game, so we know which campaigns to stop paying for:
+  <strong>AppsFlyer</strong>, which also receives what an ad impression earned,
+  and <strong>Meta</strong>'s SDK, for advertising we run on Facebook and
+  Instagram. They receive the same device-level identifiers, not your profile on
+  those services.
+</p>
+<p>
+  <strong>You are asked first.</strong> On iOS the system asks whether Glow Catch
+  may track you across other companies' apps and websites; if you decline, the
+  advertising identifier is withheld and the ads you see are chosen without it.
+  In the EEA and the UK you are additionally shown a consent form, run by
+  Google's User Messaging Platform, before any personalised advertising happens.
+  You can reopen that form at any time from <em>Settings → Ad consent</em>, and
+  change your answer.
 </p>
 
 <h2>Why we are allowed to do this</h2>
@@ -111,8 +141,18 @@ import Base from '../layouts/Base.astro';
   nothing to type.
 </p>
 <p>
-  You can end that processing at any time by deleting the app. There is no
-  account to close, because there was never one to open.
+  <strong>Advertising is different, and is not done on that basis.</strong>
+  Personalised advertising, and the advertising identifier it runs on, happen
+  only where you have agreed to them — through the iOS tracking prompt, and in
+  the EEA and the UK through the consent form described above. That agreement is
+  the whole of the permission: withhold it and the ads still appear, chosen
+  without anything that follows you between apps. Withdrawing it later is a
+  setting, not a request to us: <em>Settings → Ad consent</em>, or Apple's own
+  <em>Settings → Privacy &amp; Security → Tracking</em>.
+</p>
+<p>
+  You can end the rest of the processing at any time by deleting the app. There
+  is no account to close, because there was never one to open.
 </p>
 
 <h2>How long it is kept</h2>
@@ -123,7 +163,9 @@ import Base from '../layouts/Base.astro';
   survives is the aggregate — how many people cleared level nine, not which
   device did. Crash reports are kept by
   Crashlytics for around 90 days and then removed. Nothing is archived
-  elsewhere, and none of it is ever sold, rented, or shared for advertising.
+  elsewhere, and <strong>we never sell or rent any of it</strong>. What the ad
+  networks receive is described under <em>Advertising</em> above; each keeps it
+  under its own retention terms, which we do not set and cannot shorten.
 </p>
 
 <h2>Where it goes</h2>
@@ -134,6 +176,19 @@ import Base from '../layouts/Base.astro';
   contractual clauses and its own certification under the EU–US Data Privacy
   Framework; their terms are at
   <a href="https://firebase.google.com/support/privacy">Firebase privacy</a>.
+</p>
+<p>
+  The advertising and measurement companies named above — AppLovin, Unity,
+  Google, AppsFlyer and Meta — are established in the United States and process
+  the data there and wherever else they operate. Each relies on the standard
+  contractual clauses, and on the EU–US Data Privacy Framework where it is
+  certified under it. Their own policies are the authority on what they do with
+  what they receive:
+  <a href="https://www.applovin.com/privacy/">AppLovin</a>,
+  <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity</a>,
+  <a href="https://policies.google.com/privacy">Google</a>,
+  <a href="https://www.appsflyer.com/legal/services-privacy-policy/">AppsFlyer</a>,
+  <a href="https://www.facebook.com/privacy/policy/">Meta</a>.
 </p>
 
 <h2>Children</h2>
@@ -152,6 +207,12 @@ import Base from '../layouts/Base.astro';
   will help as far as the data allows.
 </p>
 <ul>
+  <li><strong>Stop personalised advertising:</strong> <em>Settings → Ad
+      consent</em> inside the game reopens the consent form, and Apple's
+      <em>Settings → Privacy &amp; Security → Tracking</em> withdraws the
+      tracking permission. Ads continue either way; they stop being chosen from
+      what you did elsewhere.</li>
+  <li><strong>Remove advertising entirely:</strong> the Remove Ads purchase.</li>
   <li><strong>Stop analytics:</strong> delete the app. There is no in-game
       switch, because there is nothing switchable left once the app is gone.</li>
   <li><strong>Delete everything:</strong> delete the app.</li>
@@ -176,7 +237,7 @@ import Base from '../layouts/Base.astro';
 
 <h2>Contact</h2>
 <p>
-  Nurçin Ehlimanoğlu<br>
+  RockPaperScissors (Nurçin Ehlimanoğlu)<br>
   <a href="mailto:nehlimanoglu@gmail.com">nehlimanoglu@gmail.com</a><br>
   A sole proprietorship registered in Türkiye. Governed by the law of Türkiye.
 </p>
