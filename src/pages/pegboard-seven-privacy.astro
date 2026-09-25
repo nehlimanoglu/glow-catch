@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 ---
 <Base title="Privacy Policy — Pegboard Seven"
-      description="Everything Pegboard Seven stores or sends, listed event by event."
+      description="Everything Pegboard Seven stores or sends — analytics, ads, purchases and measurement — listed plainly."
       current="legal">
 
   <section>
@@ -18,14 +18,15 @@ import Base from '../layouts/Base.astro';
   there is nowhere in the app to type any of them.
 </p>
 <p>
-  This page describes <strong>version 1.0</strong>. What follows is everything
-  the app stores or sends, described plainly.
+  This page describes <strong>version 1.1</strong>, which added advertising,
+  in-app purchases and advertising measurement. What follows is everything the
+  app stores or sends, described plainly.
 </p>
 
 <h2>Who is responsible</h2>
 <p>
-  The data controller is <strong>Nurçin Ehlimanoğlu</strong>, a sole
-  proprietorship registered in Türkiye, reachable at
+  The data controller is <strong>RockPaperScissors</strong>, the trading name
+  of Nurçin Ehlimanoğlu, a sole proprietorship registered in Türkiye, reachable at
   <a href="mailto:nehlimanoglu@gmail.com">nehlimanoglu@gmail.com</a>. There is
   no data protection officer: the business is one person, and that person reads
   the address above.
@@ -39,16 +40,16 @@ import Base from '../layouts/Base.astro';
 </p>
 <ul>
   <li>which levels you have unlocked, and the stars on each one</li>
-  <li>your coin balance</li>
-  <li>daily-reward streak and the date it was last claimed</li>
-  <li>weekly event progress and which rewards you have taken</li>
-  <li>which chapter briefings you have already been shown</li>
-  <li>whether sound is on</li>
+  <li>your coin balance, and which purchases you own</li>
+  <li>daily-reward streak, weekly event progress and star chests opened</li>
+  <li>which chapter briefings and home-screen benches you have already seen</li>
+  <li>your settings: sound, music, haptics, reminders, colour shapes, calm motion and language</li>
+  <li>a random identifier created on your device, used as described under <em>Measurement</em></li>
 </ul>
 <p>
   Deleting the app deletes all of it, and <em>MORE › Reset Progress</em> clears
-  it from inside the game. There is nothing to buy in this version, so there is
-  no purchase to restore.
+  progress from inside the game. Purchases you own are held by Apple and come
+  back with <em>SHOP › Restore Purchases</em>.
 </p>
 
 <h2>What the app sends</h2>
@@ -62,21 +63,22 @@ import Base from '../layouts/Base.astro';
   <tr><th>Event</th><th>What it carries</th></tr>
   <tr><td><code>level_start</code></td><td>level, whether it is a hard level</td></tr>
   <tr><td><code>level_complete</code></td><td>level, stars, moves, screws sent to the tray, coins earned</td></tr>
-  <tr><td><code>level_fail</code></td><td>level, reason (tray jam or out of moves), moves</td></tr>
+  <tr><td><code>level_fail</code>, <code>level_quit</code>, <code>level_skipped</code></td><td>level, reason, moves</td></tr>
   <tr><td><code>rescue_offered</code>, <code>rescue_taken</code></td><td>level, reason, coin cost, coin balance</td></tr>
   <tr><td><code>booster_used</code></td><td>which booster, coin cost</td></tr>
-  <tr><td><code>gate_blocked</code>, <code>gate_buy</code></td><td>chapter, stars needed and held, coin cost</td></tr>
   <tr><td><code>daily_claim</code>, <code>event_claim</code></td><td>day or milestone, coins received</td></tr>
+  <tr><td><code>ad_shown</code>, <code>interstitial_shown</code>, <code>ad_revenue</code></td><td>ad format, where it was shown, the ad network and what the impression earned</td></tr>
+  <tr><td><code>iap_click</code>, <code>iap_purchase</code>, <code>iap_failed</code>, <code>iap_restore</code></td><td>which product, its price tier, whether it went through</td></tr>
+  <tr><td><code>att_answered</code>, <code>notify_asked</code>, <code>rating_asked</code>, <code>language_set</code></td><td>the answer or choice, nothing more</td></tr>
   <tr><td><code>exception</code></td><td>a shortened error message, where in the code it happened, level</td></tr>
 </table>
 <p>
   None of that identifies you. Firebase itself also collects standard technical
   information we do not choose the contents of — an app-instance identifier,
   your device model and operating system version, and a coarse country or region
-  worked out from your IP address. The app is built with Firebase's variant that
-  has <strong>no advertising-identifier support</strong>, so the IDFA is never
-  read. Firebase's own terms cover the rest; see
-  <a href="https://firebase.google.com/support/privacy">Firebase privacy</a>.
+  worked out from your IP address. The app uses Firebase's variant that has
+  <strong>no advertising-identifier support</strong>, so Firebase never reads
+  the IDFA. See <a href="https://firebase.google.com/support/privacy">Firebase privacy</a>.
 </p>
 
 <h3>Crash reports — Firebase Crashlytics</h3>
@@ -85,78 +87,144 @@ import Base from '../layouts/Base.astro';
   the technical state of the crash — the stack trace, your device model and
   iOS version, how much memory was free — and the little we add on purpose:
   which level you were on, whether it was a hard level, and your coin balance.
-</p>
-<p>
-  There is no name, no address and no account in a crash report, because the
-  game holds none. Crashlytics' own terms cover what Google does with it; see
-  <a href="https://firebase.google.com/support/privacy">Firebase privacy</a>.
+  There is no name, no address and no account in it, because the game holds none.
 </p>
 
-<h3>Advertising and purchases</h3>
+<h3>Purchases — Apple</h3>
 <p>
-  <strong>This version shows no advertisements and sells nothing.</strong> There
-  is no advertising SDK and no in-app purchase in the app, the advertising
-  identifier is never requested, and iOS will not ask whether the game may track
-  you — because it does not.
+  Coin packs, the starter pack and the ad-free upgrades are sold through the
+  App Store. Apple handles the payment; we never see your card, your Apple ID or
+  your name. The game receives only a confirmation of which product was bought,
+  and records the event above.
+</p>
+
+<h3>Advertising</h3>
+<p>
+  <strong>Pegboard Seven shows advertisements from version 1.1.</strong> They
+  appear in two places and nowhere else: a full-screen ad between levels, and an
+  ad you choose to watch in exchange for something — emptying a jammed tray,
+  extra moves, an extra slot on your next try, skipping a level, doubling a
+  level's coins, or free coins in the shop. <strong>There is no banner.</strong>
+  Buying either ad-free upgrade stops the full-screen ads; the ads you choose to
+  watch stay available.
 </p>
 <p>
-  If a future version introduces either, this page will be updated before that
-  version is released, and iOS will ask for your permission where it has to.
+  The ads are filled by <strong>AppLovin MAX</strong>, which runs an auction
+  between several ad networks for each slot and shows whichever bids highest.
+  The networks that take part are <strong>AppLovin</strong>, the
+  <strong>AppLovin Exchange</strong>, <strong>Unity Ads</strong> and
+  <strong>Google AdMob</strong>. Each of them receives the request and, with it,
+  your device's advertising identifier where you have allowed one, along with
+  your approximate location by country, your device model and its operating
+  system version. They use it to choose an ad and to count whether it was seen.
+</p>
+
+<h3>Measurement — AppsFlyer and Meta</h3>
+<p>
+  Two further SDKs tell us which advertisement brought someone to the game, so we
+  know which campaigns are worth paying for:
+</p>
+<ul>
+  <li><strong>AppsFlyer</strong> receives the install and launches, a handful of
+      progress milestones (clearing level 1, 3, 5, 10, 15, 20, 30, 40, 50, 75,
+      100, 150, 200, 250 and 300), each purchase with its price and currency, and
+      what each ad impression earned. With them goes the random identifier
+      created on your device (so the same phone is not counted twice), and your
+      advertising identifier where you have allowed it.</li>
+  <li><strong>Meta</strong>'s SDK, for advertising we run on Facebook and
+      Instagram, receives the install and launches, App Store purchases (read by
+      the SDK from Apple's purchase record), the same progress milestones and ad
+      impressions. It receives device-level identifiers, not your profile on
+      Facebook or Instagram, and the game does not use Facebook Login.</li>
+</ul>
+
+<h3>You are asked first</h3>
+<p>
+  After your first cleared level, iOS asks whether Pegboard Seven may track you
+  across other companies' apps and websites. If you decline, the advertising
+  identifier is withheld from every SDK above, and ads and measurement work
+  without it. In the EEA and the UK you are additionally shown a consent form,
+  run by Google's User Messaging Platform, before any personalised advertising
+  happens; you can reopen it at any time from <em>MORE › Ad consent</em>.
+</p>
+
+<h3>Reminders</h3>
+<p>
+  If you allow notifications, the game schedules its own reminders on your phone
+  (one evening note a day at most). They are created on the device; nothing is
+  sent to a server and no push token is collected.
 </p>
 
 <h2>Why we are allowed to do this</h2>
 <p>
-  Under the GDPR the basis is <strong>legitimate interest</strong> (Article
-  6(1)(f)): knowing which levels are unfair and which crashes are real is what
-  makes the game fixable, and it is done with data that identifies nobody. We
-  balanced that against your privacy by collecting no contact details, no
-  location beyond a country, and nothing you type — because the game gives you
-  nothing to type.
+  Under the GDPR the basis for analytics and crash reports is
+  <strong>legitimate interest</strong> (Article 6(1)(f)): knowing which levels
+  are unfair and which crashes are real is what makes the game fixable, and it
+  is done with data that identifies nobody.
 </p>
 <p>
-  You can end that processing at any time by deleting the app. There is no
-  account to close, because there was never one to open.
+  <strong>Advertising and measurement are different.</strong> Personalised
+  advertising, and the advertising identifier it runs on, happen only where you
+  have agreed to them — through the iOS tracking prompt, and in the EEA and the
+  UK through the consent form described above. Withhold that and the ads still
+  appear, chosen without anything that follows you between apps. Withdrawing it
+  later is a setting, not a request to us: <em>MORE › Ad consent</em>, or Apple's
+  <em>Settings › Privacy &amp; Security › Tracking</em>.
+</p>
+<p>
+  Purchases are processed to perform the contract you enter when you buy
+  (Article 6(1)(b)).
 </p>
 
 <h2>How long it is kept</h2>
 <p>
-  Google Analytics keeps individual events for no longer than
-  <strong>14 months</strong> and then deletes them; what survives is the
-  aggregate — how many people cleared level nine, not which device did. Crash
-  reports are kept by Crashlytics for around 90 days and then removed. Nothing is
-  archived elsewhere, and none of it is ever sold, rented, or shared for
-  advertising.
+  Individual analytics events are held for <strong>2 months</strong>, and the
+  anonymous identifier a device is counted under for <strong>14 months</strong>
+  after its last event; Google deletes both when the period runs out. Crash
+  reports are kept by Crashlytics for around 90 days. Nothing is archived
+  elsewhere, and <strong>we never sell or rent any of it</strong>. What the ad
+  networks and measurement partners receive is kept under their own retention
+  terms, which we do not set and cannot shorten.
 </p>
 
 <h2>Where it goes</h2>
 <p>
-  Both services are run by Google, so the data leaves Türkiye and the EEA and is
-  processed in the United States and other countries where Google operates.
-  Google covers those transfers with the European Commission's standard
-  contractual clauses and its own certification under the EU–US Data Privacy
-  Framework; their terms are at
-  <a href="https://firebase.google.com/support/privacy">Firebase privacy</a>.
+  Firebase is run by Google, and AppLovin, Unity, Google, AppsFlyer and Meta are
+  established in the United States; the data leaves Türkiye and the EEA and is
+  processed there and wherever else they operate. Each relies on the European
+  Commission's standard contractual clauses, and on the EU–US Data Privacy
+  Framework where it is certified under it. Their own policies are the authority
+  on what they do with what they receive:
+  <a href="https://firebase.google.com/support/privacy">Firebase</a>,
+  <a href="https://www.applovin.com/privacy/">AppLovin</a>,
+  <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity</a>,
+  <a href="https://policies.google.com/privacy">Google</a>,
+  <a href="https://www.appsflyer.com/legal/services-privacy-policy/">AppsFlyer</a>,
+  <a href="https://www.facebook.com/privacy/policy/">Meta</a>.
 </p>
 
 <h2>Children</h2>
 <p>
   Pegboard Seven is not directed at children under 13, and we do not knowingly
-  collect anything from them. There is no chat, no user-generated content and no
-  advertising. If you believe a child's data has reached us through this app,
-  write to <a href="mailto:nehlimanoglu@gmail.com">nehlimanoglu@gmail.com</a> and
-  we will remove what we can.
+  collect anything from them. There is no chat and no user-generated content.
+  If you believe a child's data has reached us through this app, write to
+  <a href="mailto:nehlimanoglu@gmail.com">nehlimanoglu@gmail.com</a> and we will
+  remove what we can.
 </p>
 
 <h2>Your rights</h2>
 <p>
   Rights of access, correction, deletion, objection and portability exist under
   the GDPR, the UK GDPR and Türkiye's KVKK (Law 6698). Because we hold nothing
-  that identifies you, there is usually nothing for us to look up, correct or
-  delete on request — but write to
-  <a href="mailto:nehlimanoglu@gmail.com">nehlimanoglu@gmail.com</a> and we will
-  help as far as the data allows.
+  that identifies you by name, there is usually little for us to look up — but
+  write to <a href="mailto:nehlimanoglu@gmail.com">nehlimanoglu@gmail.com</a>
+  and we will help as far as the data allows, including with requests to the
+  partners named above.
 </p>
 <ul>
+  <li><strong>Stop personalised ads and tracking:</strong> decline the iOS prompt,
+      or turn it off later in <em>Settings › Privacy &amp; Security › Tracking</em>;
+      in the EEA and UK, <em>MORE › Ad consent</em>.</li>
   <li><strong>Stop analytics and crash reports:</strong> delete the app.</li>
   <li><strong>Delete your progress:</strong> <em>MORE › Reset Progress</em>, or
       delete the app.</li>
@@ -169,11 +237,9 @@ import Base from '../layouts/Base.astro';
 
 <h2>If this changes</h2>
 <p>
-  Advertising and purchases are things this game may gain in a later version.
-  Neither can be switched on quietly: each one changes what the app does, and
-  <strong>this page is updated before that version ships</strong>, together with
-  the App Store privacy label. The date below tells you which version you are
-  reading about.
+  If a later version sends anything new, this page is updated before that
+  version ships, together with the App Store privacy label. The line below tells
+  you which version you are reading about.
 </p>
 
 <h2>Contact</h2>
@@ -183,7 +249,7 @@ import Base from '../layouts/Base.astro';
 </p>
 
 <p class="fine">
-  Applies to Pegboard Seven version 1.0. Last updated 11 September 2026.
+  Applies to Pegboard Seven version 1.1. Last updated 25 September 2026.
 </p>
     </div>
   </section>
