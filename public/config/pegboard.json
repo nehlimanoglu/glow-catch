@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "note": "Pegboard Seven runtime settings. Edited here and deployed with the site; a player picks them up on their next launch. A key absent here falls back to the value shipped in the build. Every value below equals the shipped default on purpose: this file documents the knobs and changes nothing until a value is edited. Editors: the game finds a block by searching for its quoted name so no note may contain a block name in quotes; no value may contain a comma.",
+  "ads": "Interstitial pacing is fail-first. failFromLevel and winFromLevel are 1-based levels. failFreeAttempts losses on a level show no ad; every later loss does until failStuckAfter; past that only every failStuckEvery-th loss. Wins show one every winEvery wins and never within winQuietAfterFailAd active seconds of a fail ad. minActiveSeconds is active play between any two full-screen ads. rewardedSkipsNext lets a watched rewarded ad pay for the next interstitial. Change ads.tag with every pacing change so analytics can tell the tunings apart.",
+  "experiment": "The share block is empty so every install is on the first tuning. Give a named tuning a share to start an experiment; the assignment is stable per install.",
+  "default": {
+    "ads.failFromLevel": 6,
+    "ads.failFreeAttempts": 1,
+    "ads.failStuckAfter": 4,
+    "ads.failStuckEvery": 2,
+    "ads.winFromLevel": 4,
+    "ads.winEvery": 5,
+    "ads.winQuietAfterFailAd": 180,
+    "ads.minActiveSeconds": 45,
+    "ads.dailyCap": 20,
+    "ads.rewardedSkipsNext": true,
+    "ads.skipAfterFails": 3,
+    "ads.noAdsPitchAfter": 3,
+    "ads.tag": "fail-first-1"
+  },
+  "split": {}
+}
