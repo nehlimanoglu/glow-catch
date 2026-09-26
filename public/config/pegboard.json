@@ -16,7 +16,27 @@
     "ads.rewardedSkipsNext": true,
     "ads.skipAfterFails": 3,
     "ads.noAdsPitchAfter": 3,
-    "ads.tag": "fail-first-1"
+    "ads.tag": "fail-first-1",
+    "econ.winBase": 20,
+    "econ.perStar": 10,
+    "econ.dailyWin": 25,
+    "race.goal": 10,
+    "race.hours": 24,
+    "race.reward1": 300,
+    "race.reward2": 150,
+    "race.reward3": 80,
+    "piggy.start": 250,
+    "piggy.perWin": 40,
+    "piggy.minBreak": 250,
+    "piggy.cap": 3000,
+    "offer.hours": 24,
+    "offer.cooldownDays": 3,
+    "shop.pack.undo": 80,
+    "shop.pack.slot": 400,
+    "shop.pack.drill": 320,
+    "shop.pack.heart": 240,
+    "event.themeOff": false
   },
+  "economy": "Coin economy from 2026-09-26. econ keys are the win payout (base plus per extra star) and the first win of the day. race keys: goal is new levels to finish and hours the race length; reward1 to reward3 are the coins for places one to three. piggy keys: start is the balance after each break; perWin is added per new level; minBreak is the smallest balance that can be bought; cap stops it filling. offer keys: hours the window after a finished chapter and cooldownDays the gap before the next one. shop.pack keys are the coin prices of the three-packs in the shop. event.themeOff true turns the rotating weekly event themes off.",
   "split": {}
 }
